@@ -110,7 +110,12 @@ imageResponse = imageResponse_;
  **/
 -(void)layoutSubviews {
 	[super layoutSubviews];
-	self.activityIndicator.center = self.center;
+    
+    CGRect activityIndicatorFrame = self.activityIndicator.frame;
+    activityIndicatorFrame.origin.x = (self.frame.size.width - self.activityIndicator.frame.size.width) / 2;
+    activityIndicatorFrame.origin.y = (self.frame.size.height - self.activityIndicator.frame.size.height) / 2;
+    self.activityIndicator.frame = activityIndicatorFrame;
+    
 	[self addSubview:self.activityIndicator];
 }
 
