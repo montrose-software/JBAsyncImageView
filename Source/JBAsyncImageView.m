@@ -145,6 +145,7 @@ imageResponse = imageResponse_;
 	
 	// Begin download
 	self.imageData = nil;
+	[self.imageConnection cancel];
 	self.imageConnection = [[NSURLConnection alloc] initWithRequest:self.imageRequest 
 														   delegate:self 
 												   startImmediately:YES];
